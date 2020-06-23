@@ -4,7 +4,7 @@ import sys
 import math
 import itertools
 
-from common import print_tour, read_input
+from common import print_solution, read_input
 
 def distance(city1, city2):
     return math.sqrt((city1[0] - city2[0]) ** 2 + (city1[1] - city2[1]) ** 2)
@@ -205,7 +205,18 @@ def get_min_tour(dist):
 
     return min_tour
 
+def get_min_tour_no_loop(dist):
+    start_point = 0
+  
+    tour = make_tour_greedy(dist, start_point) #貪欲法での解法
+    
+    tour = optimize_3(tour) #3点のつなぎ変え
+    # print("three done")
 
+    tour = optimize_2(tour) #2点のつなぎ変え
+    # print("two done")
+
+    return tour
 
 if __name__ == '__main__':
 
@@ -215,11 +226,15 @@ if __name__ == '__main__':
     
     print("load done")
 
-    tour = get_min_tour(dist)
+    if sys.argv[2] == "F": #input_6用、スタートポイント変更なし
+        tour = get_min_tour_no_loop(dist)
+
+    elif sys.argv[2] == "T":
+        tour = get_min_tour(dist)
 
     # print(tour)
     print(sys.argv[1][6])
-    path = "output_" + sys.argv[1][6] + ".csv"
+    path = "solution_yours_" + sys.argv[1][6] + ".csv"
     save_file(path, tour)
 
    
