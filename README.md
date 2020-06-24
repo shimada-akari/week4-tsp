@@ -1,12 +1,16 @@
-やったこと
+### やったこと
+
 cross_program.py
+
 greedyでの解法を3-optと2-optで修正しました。開始点を変えると、スコアがよくなる場合があるので、input6以外は開始点を全ての点に変えて行いました。
 input_6の時は時間が係すぎるので、都市0からのスタートのみです。
 
 convex_full.py
-凸包を最初に作り、そこに内部の点を挿入していきました。その後、3-optと2-optを行いました。
 
-cross_program.pyの方がスコアが良かったので、スコアシートにはcross_program.pyの結果を出しています。
+凸包を最初に作り、そこに内部の点を挿入していきました。その後、3-optと2-optを行いました。  
+
+cross_program.pyの方がスコアが良かったので、スコアシートにはcross_program.pyの結果を出しています。  
+
 
 
 Build@Mercari 2020 Week4 - Travelling Salesman PRoblem Challenges.
